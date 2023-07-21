@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contact.Application.CQRS.Core
 {
-    public class ApiResult
+    public class ApiResult<TResponse>
     {
 
     }
