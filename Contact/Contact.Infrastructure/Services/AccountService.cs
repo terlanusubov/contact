@@ -1,8 +1,10 @@
-﻿using Contact.Application.CQRS.Core;
+﻿using Azure;
+using Contact.Application.CQRS.Core;
 using Contact.Application.Interfaces;
 using Contact.Application.Models.Request;
 using Contact.Application.Models.Response;
 using Contact.Domain.Entities;
+using Contact.Domain.Enums;
 using Contact.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,57 +23,69 @@ namespace Contact.Infrastructure.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly IJWTService _jwtService;
+
         public AccountService(ApplicationDbContext context,
-                              IConfiguration configuration)
+                              IConfiguration configuration,
+                              IJWTService jWTService)
         {
             _context = context;
             _configuration = configuration;
+            _jwtService = jWTService;
         }
         public async Task<ApiResult<LoginResponse>> Login(LoginRequest request)
         {
             var user = await _context.Users.FirstOrDefaultAsync(c => c.Username == request.Username);
 
             if (user == null)
+                return ApiResult<LoginResponse>.Error(ErrorCodes.USERNAME_OR_PASSWORD_IS_NOT_CORRECT);
+
+
+            if (!user.CheckPassword(request.Password))
+                return ApiResult<LoginResponse>.Error(ErrorCodes.USERNAME_OR_PASSWORD_IS_NOT_CORRECT);
+
+
+
+            string token = _jwtService.GenerateJwtToken(user);
+
+            var response = new LoginResponse
             {
-                return null;
-            }
-
-
-            var issuer = _configuration["JWTSettings:Issuer"];
-            var audience = _configuration["JWTSettings:Audience"];
-            var key = Encoding.ASCII.GetBytes
-            (_configuration["JWTSettings:Key"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                new Claim("id", Guid.NewGuid().ToString()),
-                new Claim("name", user.Name),
-                    new Claim("username", user.Username),
-                new Claim("jti",  Guid.NewGuid().ToString().Replace("-","")),
-                new Claim("audiences","")
-             }),
-                Expires = DateTime.UtcNow.AddHours(Convert.ToInt32(_configuration["JWTSettings:Expiration"])),
-                Issuer = issuer,
-                Audience = audience,
-                SigningCredentials = new SigningCredentials
-
-                (new SymmetricSecurityKey(key),
-                SecurityAlgorithms.HmacSha512Signature)
+                Token = token
             };
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var jwtToken = tokenHandler.WriteToken(token);
-            var stringToken = tokenHandler.WriteToken(token);
-
-            return null;
-
+            return ApiResult<LoginResponse>.OK(response);
         }
 
-        public Task<ApiResult<RegisterResponse>> Register(RegisterRequest request)
+        public async Task<ApiResult<RegisterResponse>> Register(RegisterRequest request)
         {
-            throw new NotImplementedException();
+
+            var user = await _context.Users.FirstOrDefaultAsync(c => c.Username == request.Username);
+
+            if (user != null)
+                return ApiResult<RegisterResponse>.Error(ErrorCodes.USER_IS_ALREADY_EXISTS_WITH_THIS_USERNAME);
+
+
+            user = new User(request.Name,
+                               request.Surname,
+                               request.Email,
+                               request.Username);
+
+            user.AddPassword(request.Password);
+
+
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+
+            var response = new RegisterResponse
+            {
+                Name = user.Name,
+                Surname = user.Surname,
+                UserId = user.Id,
+                Username = user.Username
+            };
+
+            return ApiResult<RegisterResponse>.OK(response);
         }
     }
 }

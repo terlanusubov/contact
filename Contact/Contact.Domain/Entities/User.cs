@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Contact.Domain.Enums;
 
 namespace Contact.Domain.Entities
 {
@@ -23,19 +25,48 @@ namespace Contact.Domain.Entities
             Surname = surname;
             Email = email;
             Username = username;
+            Created = DateTime.Now;
+            UserStatusId = (byte)UserStatus.Active;
         }
 
         public ICollection<UserContact> UserContacts { get; set; }
 
         public void AddPassword(string password)
         {
-            //TODO: password add logic
+            Guid guid = Guid.NewGuid();
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                var salt = sha256.ComputeHash(Encoding.UTF8.GetBytes(guid.ToString()));
+
+
+
+                using (HMACSHA256 hmacSha256 = new HMACSHA256(salt))
+                {
+                    var buffer = hmacSha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+
+                    Salt = salt;
+                    Password = buffer;
+                }
+            }
+
         }
 
         public UserContact AddUserContact(UserContact userContact)
         {
             //TODO : add user contact
             return null;
+        }
+
+        public bool CheckPassword(string password)
+        {
+            using (HMACSHA256 hmacSha256 = new HMACSHA256(Salt))
+            {
+                var buffer = hmacSha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                return buffer.SequenceEqual(Password);
+            }
         }
     }
 }
