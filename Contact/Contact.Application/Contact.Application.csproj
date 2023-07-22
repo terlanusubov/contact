@@ -14,4 +14,14 @@
     <ProjectReference Include="..\Contact.Domain\Contact.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Request\" />
+    <None Remove="Models\Response\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Models\Response\" />
+  </ItemGroup>
 </Project>
