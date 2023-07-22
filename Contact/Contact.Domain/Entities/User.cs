@@ -19,6 +19,10 @@ namespace Contact.Domain.Entities
         public byte UserStatusId { get; set; }
 
 
+        public User()
+        {
+            UserContacts = new HashSet<UserContact>();
+        }
         public User(string name, string surname, string email, string username)
         {
             Name = name;

@@ -14,7 +14,7 @@ namespace Contact.API.Controllers
 {
     [ApiController]
     [Route("api/account")]
-    public class AccountController : ControllerBase
+    public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
         public AccountController(IAccountService accountService) => _accountService = accountService;

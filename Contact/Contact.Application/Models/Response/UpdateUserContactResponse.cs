@@ -1,11 +1,9 @@
 ﻿using System;
 namespace Contact.Application.Models.Response
 {
-	public class UpdateUserContactResponse
-	{
-		public UpdateUserContactResponse()
-		{
-		}
-	}
+    public class UpdateUserContactResponse
+    {
+        public int ContactId { get; set; }
+    }
 }
 

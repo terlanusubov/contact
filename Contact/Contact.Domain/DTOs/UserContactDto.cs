@@ -1,8 +1,9 @@
 ﻿using System;
-namespace Contact.Application.Models.Request
+namespace Contact.Domain.DTOs
 {
-    public class CreateUserContactRequest
+    public class UserContactDto
     {
+        public int ContactId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }

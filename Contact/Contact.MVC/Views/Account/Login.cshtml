@@ -1,0 +1,18 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="@Url.Action("Login","Account")" method="post" class="login-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="Username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="Password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-login">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

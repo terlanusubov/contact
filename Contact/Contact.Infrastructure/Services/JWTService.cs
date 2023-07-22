@@ -25,7 +25,7 @@ namespace Contact.Infrastructure.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                new Claim("id", Guid.NewGuid().ToString()),
+                new Claim("id", user.Id.ToString()),
                 new Claim("name", user.Name),
                     new Claim("username", user.Username),
                 new Claim("jti",  Guid.NewGuid().ToString().Replace("-","")),

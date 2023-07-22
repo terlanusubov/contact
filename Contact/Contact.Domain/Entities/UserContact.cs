@@ -16,5 +16,19 @@ namespace Contact.Domain.Entities
 
         public User User { get; set; }
 
+
+        public UserContact(string name, string surname, string phone, string email)
+        {
+            Name = name;
+            Surname = surname;
+            Email = email;
+            Phone = phone;
+        }
+
+
+        public void ConnectToUser(int userId)
+        {
+            UserId = userId;
+        }
     }
 }

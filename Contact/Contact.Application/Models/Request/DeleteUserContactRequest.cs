@@ -1,11 +1,9 @@
 ﻿using System;
 namespace Contact.Application.Models.Request
 {
-	public class DeleteUserContactRequest
-	{
-		public DeleteUserContactRequest()
-		{
-		}
-	}
+    public class DeleteUserContactRequest
+    {
+
+    }
 }
 

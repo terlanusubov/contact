@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <None Remove="Extensions\" />
+    <None Remove="DTOs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="DTOs\" />
   </ItemGroup>
 </Project>
