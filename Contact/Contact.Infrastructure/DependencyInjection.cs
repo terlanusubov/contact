@@ -19,8 +19,10 @@ namespace Contact.Infrastructure
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(_configuration["Database:Connection"],x=>x.MigrationsAssembly("Contact.Infrastructure"));
-
+                options.UseMySql(_configuration["Database:Connection"], ServerVersion.AutoDetect(_configuration["Database:Connection"]), (options) =>
+                {
+                    options.MigrationsAssembly("Contact.Infrastructure");
+                });
             });
             return services;
         }
