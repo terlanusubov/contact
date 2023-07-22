@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contact.Application.CQRS.Core;
 using Contact.Application.Interfaces;
+using Contact.Application.Models.Request;
 using Contact.Application.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,10 @@ namespace Contact.API.Controllers
         public async Task<ActionResult<ApiResult<LoginResponse>>> Login(LoginRequest request)
         => await _accountService.Login(request);
 
+        [HttpPost("register")]
+        public async Task<ActionResult<ApiResult<RegisterResponse>>>
+            Register(RegisterRequest request)
+            => await _accountService.Register(request);
     }
 }
 

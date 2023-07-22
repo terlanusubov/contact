@@ -16,26 +16,14 @@ namespace Contact.API.Controllers
            => _userService = userService;
 
         #region GET Requests
-        [HttpGet]
-        public async Task<ActionResult<string>> GetUsers(GetUserRequest request)
-        {
-            return null;
-        }
-
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<ApiResult<GetUserByIdResponse>>> GetUserById(string userId)
-        {
-            return null;
-        }
-
-        [HttpGet("{userId}/contacts")]
+        [HttpGet("contacts")]
         public async Task<ActionResult<ApiResult<GetUserContactResponse>>> GetUserContacts(GetUserContactRequest request)
         {
             return null;
         }
 
 
-        [HttpGet("{userId}/contacts/{contactId}")]
+        [HttpGet("contacts/{contactId}")]
         public async Task<ActionResult<ApiResult<GetUserContactDetailByIdResponse>>>
             GetUserContactDetailById(GetUserContactDetailByIdRequest request)
         {
@@ -45,7 +33,7 @@ namespace Contact.API.Controllers
         #endregion
 
         #region POST Requests
-        [HttpPost("{userId}/contacts")]
+        [HttpPost("contacts")]
         public async Task<ActionResult<ApiResult<CreateUserContactResponse>>> CreateUserContact(CreateUserContactRequest request)
         {
             return null;
@@ -53,7 +41,7 @@ namespace Contact.API.Controllers
         #endregion
 
         #region PUT Requests
-        [HttpPut("{userId}/contacts/{contactId}")]
+        [HttpPut("contacts/{contactId}")]
         public async Task<ActionResult<ApiResult<UpdateUserContactResponse>>> UpdateUserContact(UpdateUserContactRequest request)
         {
             return null;
@@ -62,6 +50,7 @@ namespace Contact.API.Controllers
         #endregion
 
         #region DELETE Request
+        [HttpDelete("contacts")]
         public async Task<ActionResult<ApiResult<DeleteUserContactResponse>>>
             DeleteUserContact(DeleteUserContactRequest request)
 
