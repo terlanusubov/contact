@@ -6,6 +6,7 @@ using Contact.Application.CQRS.Core;
 using Contact.Application.Interfaces;
 using Contact.Application.Models.Request;
 using Contact.Application.Models.Response;
+using Contact.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,12 +22,22 @@ namespace Contact.API.Controllers
 
         [HttpPost("login")]
         public async Task<ActionResult<ApiResult<LoginResponse>>> Login(LoginRequest request)
-        => await _accountService.Login(request);
+        => ResponseViaCookie(await _accountService.Login(request));
 
         [HttpPost("register")]
         public async Task<ActionResult<ApiResult<RegisterResponse>>>
             Register(RegisterRequest request)
             => await _accountService.Register(request);
+
+        [HttpGet("check-token")]
+        public async Task<ActionResult<ApiResult<CheckTokenResponse>>> CheckToken()
+        {
+            string token = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "Token").Value;
+            if (string.IsNullOrEmpty(token))
+                return ApiResult<CheckTokenResponse>.Error(ErrorCodes.AUTH_TOKEN_IS_EMPTY);
+
+            return await _accountService.CheckToken(token);
+        }
     }
 }
 

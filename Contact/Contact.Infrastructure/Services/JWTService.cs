@@ -29,7 +29,6 @@ namespace Contact.Infrastructure.Services
                 new Claim("name", user.Name),
                     new Claim("username", user.Username),
                 new Claim("jti",  Guid.NewGuid().ToString().Replace("-","")),
-                new Claim("audiences","")
              }),
                 Expires = DateTime.UtcNow.AddHours(Convert.ToInt32(_configuration["JWTSettings:Expiration"])),
                 Issuer = issuer,
@@ -48,9 +47,24 @@ namespace Contact.Infrastructure.Services
             return stringToken;
         }
 
-        public int? ValidateJwtToken(string? token)
+        public string ValidateJwtToken(string token)
         {
-            throw new NotImplementedException();
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["JWTSettings:Key"]);
+
+            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            }, out SecurityToken validatedToken);
+
+            var jwtToken = (JwtSecurityToken)validatedToken;
+            var userId = jwtToken.Claims.First(x => x.Type == "id").Value;
+            var jti = jwtToken.Claims.First(x => x.Type == "jti").Value;
+
+            return token;
         }
     }
 }

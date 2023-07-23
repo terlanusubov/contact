@@ -12,11 +12,13 @@
     <None Remove="Helpers\" />
     <None Remove="Views\Account\" />
     <None Remove="Filters\" />
+    <None Remove="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Filters\" />
+    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contact.Application\Contact.Application.csproj">

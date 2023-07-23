@@ -44,13 +44,12 @@ namespace Contact.MVC.Controllers
 
                 Response.Cookies.Append("Token", loginResponse.Response.Token, new Microsoft.AspNetCore.Http.CookieOptions
                 {
-                    Expires = DateTime.UtcNow.AddHours(1),
+                    Expires = DateTime.UtcNow.AddHours(5),
                     HttpOnly = true,
                     Secure = true,
-                    SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict
+                    SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None
                 });
 
-                // Create a claims identity with the user's claims (you can add more claims as needed)
                 var claims = new List<Claim>
                   {
                       new Claim("jwt_token",loginResponse.Response.Token ),

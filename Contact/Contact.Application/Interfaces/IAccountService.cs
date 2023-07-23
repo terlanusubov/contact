@@ -13,5 +13,6 @@ namespace Contact.Application.Interfaces
     {
         Task<ApiResult<LoginResponse>> Login(LoginRequest request);
         Task<ApiResult<RegisterResponse>> Register(RegisterRequest request);
+        Task<ApiResult<CheckTokenResponse>> CheckToken(string token);
     }
 }

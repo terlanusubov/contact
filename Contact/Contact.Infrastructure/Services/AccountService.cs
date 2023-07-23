@@ -33,6 +33,20 @@ namespace Contact.Infrastructure.Services
             _configuration = configuration;
             _jwtService = jWTService;
         }
+
+        public async Task<ApiResult<CheckTokenResponse>> CheckToken(string token)
+        {
+            var result = _jwtService.ValidateJwtToken(token);
+
+            return ApiResult<CheckTokenResponse>.OK(new CheckTokenResponse
+            {
+                Token = result,
+
+            });
+
+
+        }
+
         public async Task<ApiResult<LoginResponse>> Login(LoginRequest request)
         {
             var user = await _context.Users.FirstOrDefaultAsync(c => c.Username == request.Username);

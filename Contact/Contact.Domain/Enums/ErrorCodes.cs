@@ -24,7 +24,13 @@ namespace Contact.Domain.Enums
         USER_CONTACT_IS_NOT_EXISTS = 2_0_0,
 
         [Description("Contact is already exists with this phone number")]
-        USER_CONTACT_IS_ALREADY_EXISTS
+        USER_CONTACT_IS_ALREADY_EXISTS = 2_0_1,
+
+
+        [Description("Auth token is empty")]
+        AUTH_TOKEN_IS_EMPTY = 3_0_0
+
+
 
 
 

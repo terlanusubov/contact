@@ -1,0 +1,52 @@
+﻿@using Contact.Application.Models.Response
+@model GetUserContactResponse
+<div class="container mt-4">
+    <h3>User Contact Table</h3>
+    <form action="@Url.Action("List","Contact")" method="get">
+        <div class="form-row d-flex">
+            <div class="col-md-2 mx-1 my-1">
+                <input type="text" name="Name" class="form-control" placeholder="Search by Name" id="inputName">
+            </div>
+            <div class="col-md-2 mx-1 my-1">
+                <input type="text" name="Surname" class="form-control" placeholder="Search by Surname" id="inputSurname">
+            </div>
+            <div class="col-md-2 mx-1 my-1">
+                <input type="text" name="Email" class="form-control" placeholder="Search by Email" id="inputEmail">
+            </div>
+            <div class="col-md-2 mx-1 my-1">
+                <input type="text" name="Phone" class="form-control" placeholder="Search by Phone" id="inputPhone">
+            </div>
+            <div class="col-md-2 mx-1 my-1">
+                <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model.Contacts)
+            {
+                <tr>
+                    <td>@contact.ContactId</td>
+                    <td>@contact.Name</td>
+                    <td>@contact.Surname</td>
+                    <td>@contact.Email</td>
+                    <td>@contact.Phone</td>
+                    <td>
+                        <a href="#" class="btn btn-primary">Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

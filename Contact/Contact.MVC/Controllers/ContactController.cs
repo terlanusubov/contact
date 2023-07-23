@@ -7,6 +7,7 @@ using Contact.Application.CQRS.Core;
 using Contact.Application.Models.Request;
 using Contact.Application.Models.Response;
 using Contact.MVC.Filters;
+using Contact.MVC.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -27,13 +28,13 @@ namespace Contact.MVC.Controllers
 
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                var response = await client.PostAsync("users/contacts", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
+                var response = await client.GetAsync("users/contacts?" + request.ToQueryString());
 
                 string apiResponse = await response.Content.ReadAsStringAsync();
 
                 var contactResponse = JsonConvert.DeserializeObject<ApiResult<GetUserContactResponse>>(apiResponse);
 
-                return View();
+                return View(contactResponse?.Response);
             }
         }
     }
