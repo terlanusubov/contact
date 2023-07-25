@@ -55,4 +55,4 @@ jobs:
           app-name: 'test-contact-api'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_49DF46C32AC54381879A8BE85E4F726A }}
-          package: ${{ github.workspace }}/Contact/Contact.API/bin/Release/net7.0/publish
+          package: /home/runner/work/contact/contact/Contact/Contact.API/bin/Release/net7.0/publish
