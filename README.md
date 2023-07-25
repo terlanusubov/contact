@@ -9,6 +9,8 @@ Welcome to the Contact API documentation!
 - [Authentication]
 - [Contact.API]
 - [Contact.MVC]
+- [Classic.ASP]
+- [Deployment]
 - [Error Codes]
 
 
@@ -69,6 +71,26 @@ Custom [Auth] Authorization filter attribute checks the JWT token validity
 
 ## Contact.MVC
 Contact MVC consume data from Contact.API . As Authorization Contact.MVC sends token from header which key is Authorization.
+- [Account/Login]
+- [Account/Register]
+- [Contact/List]
+- [Contact/Delete]
+  
+## Classic.ASP
+
+ Classic ASP part is very simple. There are some functionalites there which are edit and create contact. I have used VB and JS script (most of VBSscript).
+ - [add-contact.asp]
+ - [edit-contact.asp]
+## Sharing Session
+
+API has JWT authentication. When User tries to login to the system , API response to user via cookie . I host jwt token in cookie with SameSiteMode NONE and same domain path with other projects (Classic asp and ASP.NET Core MVC). That's why Classic asp can get token from cookie and we can store our claims in JWT token. Classic asp can parse and get all claims which it need.
+
+## Delpoyment
+
+Azure App services with Github Actions implementation. 
+Main branch listen to API (has yml file for API)
+MVC branch listen to MVC (has yml file for MVC)
+Classic asp hosted in Azure app services also, but deployed with FTP.
 
 ## Error Codes
 
