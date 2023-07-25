@@ -23,6 +23,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
   </ItemGroup>
 
+<ItemGroup>
+	<InternalsVisibleTo Include="..\Contact.API.xUnit" />
+</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Contact.Infrastructure\Contact.Infrastructure.csproj" />
   </ItemGroup>
