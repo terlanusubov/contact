@@ -55,4 +55,4 @@ jobs:
           app-name: 'test-contact-api'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_49DF46C32AC54381879A8BE85E4F726A }}
-          package: ${{env.DOTNET_ROOT}}/myapp/Contact.API
+          package: ${{ github.workspace }}/${{ env.ARTIFACTS_DIR }}/myapp/Contact.API
