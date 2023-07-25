@@ -44,7 +44,8 @@ namespace Contact.API.Controllers
         #endregion
 
         #region PUT Requests
-        [HttpPut("contacts/{contactId}")]
+        //TODO: I have changed this because of Classic ASP cant send PUT request here . It has to be PUT and /api/users/contacts/{contactId}
+        [HttpPost("contacts/{contactId}/update")]
         public async Task<ActionResult<ApiResult<UpdateUserContactResponse>>> UpdateUserContact(UpdateUserContactRequest request, int contactId)
          => await _userContactService.UpdateUserContact(request, contactId, GetUser());
         #endregion

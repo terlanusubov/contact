@@ -18,12 +18,18 @@ namespace Contact.MVC.Controllers
     [Auth]
     public class ContactController : Controller
     {
+        private readonly IConfiguration _configuration;
+
+        public ContactController(IConfiguration configuration)
+        {
+                _configuration = configuration;
+        }
         [HttpGet]
         public async Task<IActionResult> List(GetUserContactRequest request)
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5233/api/");
+                client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
                 Request.Cookies.TryGetValue("Token", out string? token);
 
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
@@ -48,7 +54,7 @@ namespace Contact.MVC.Controllers
 
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:7243/api/");
+                client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
                 Request.Cookies.TryGetValue("Token", out string? token);
 
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);

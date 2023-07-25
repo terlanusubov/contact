@@ -29,7 +29,7 @@ namespace Contact.API.Controllers
             }
             var cookie = new CookieOptions()
             {
-                Domain = ".hra.az",
+                Domain = _configuration["CookieSettings:Domain"],
                 Path = "/",
                 HttpOnly = true,
                 Secure = true,

@@ -20,6 +20,15 @@ namespace Contact.MVC.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IConfiguration _configuration;
+        public AccountController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+
+
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -31,7 +40,7 @@ namespace Contact.MVC.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5233/api/");
+                client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
 
                 var response = await client.PostAsync("account/login", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 
@@ -74,7 +83,7 @@ namespace Contact.MVC.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5233/api/");
+                client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
 
                 var response = await client.PostAsync("account/register", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 
