@@ -40,7 +40,7 @@ namespace Contact.API.xUnit
             return new UpdateUserContactRequest
             {
                 Name = "Test",
-                Surname = "Test",
+                Suraname = "Test",
                 Phone = "test",
                 Email = "test.test@test.com"
             };
