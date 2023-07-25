@@ -29,7 +29,7 @@ namespace Contact.API.Controllers
             }
             var cookie = new CookieOptions()
             {
-                Domain = _configuration["CookieSettings:Domain"],
+                Domain = Configuration["CookieSettings:Domain"],
                 Path = "/",
                 HttpOnly = true,
                 Secure = true,
