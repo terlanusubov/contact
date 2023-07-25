@@ -100,6 +100,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.UseStaticFiles();
+
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>
