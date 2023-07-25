@@ -23,7 +23,7 @@ namespace Contact.MVC.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://test-contact-api.azurewebsites.net/api/");
+                client.BaseAddress = new Uri("https://contact-api.hra.az/api/");
                 Request.Cookies.TryGetValue("Token", out string? token);
 
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
@@ -48,7 +48,7 @@ namespace Contact.MVC.Controllers
 
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://test-contact-api.azurewebsites.net/api/");
+                client.BaseAddress = new Uri("https://contact-api.hra.az/api/");
                 Request.Cookies.TryGetValue("Token", out string? token);
 
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);

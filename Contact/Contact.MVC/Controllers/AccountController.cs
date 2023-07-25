@@ -31,7 +31,7 @@ namespace Contact.MVC.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://test-contact-api.azurewebsites.net/api/");
+                client.BaseAddress = new Uri("https://contact-api.hra.az/api/");
 
                 var response = await client.PostAsync("account/login", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 
@@ -74,7 +74,7 @@ namespace Contact.MVC.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://test-contact-api.azurewebsites.net/api/");
+                client.BaseAddress = new Uri("https://contact-api.hra.az/api/");
 
                 var response = await client.PostAsync("account/register", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 
