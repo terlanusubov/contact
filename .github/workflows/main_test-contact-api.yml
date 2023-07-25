@@ -27,7 +27,7 @@ jobs:
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp/Contact.API
-        working-directory: ./Contact.API
+        working-directory: ./Contact/Contact.API
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -55,4 +55,4 @@ jobs:
           app-name: 'test-contact-api'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
-          package: ./Contact.API
+          package: ./Contact/Contact.API
