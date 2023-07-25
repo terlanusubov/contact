@@ -45,7 +45,6 @@ namespace Contact.API.xUnit
                 Email = "test.test@test.com"
             };
         }
-
        
     }
 }

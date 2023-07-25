@@ -15,7 +15,7 @@ phone = Request.Form("phone")
 
 requestData = "{ ""name"": """ & name & """, ""surname"": """ & surname & """, ""email"": """ & email & """, ""phone"": """ & phone & """ }"
 
-url = "https://localhost:7243/api/users/contacts/" & contactId
+url = "https://contact-api.hra.az/api/users/contacts/" & contactId
 
 Dim http
 Set http = Server.CreateObject("WinHTTP.WinHTTPRequest.5.1")
@@ -47,7 +47,7 @@ If http.Status = 200 Then
     Dim statusCode
     statusCode = jsonObj.data("statusCode")
     If statusCode = 200 tHEN
-        Response.Redirect "https://localhost:7141/Contact/List" 
+        Response.Redirect "https://contact-mvc.hra.az/Contact/List" 
     Else If statusCode = 400 Then
       Response.Redirect "../pages/edit-contact.asp?contactId=" & contactId
       End If

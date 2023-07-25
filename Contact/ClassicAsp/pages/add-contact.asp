@@ -63,21 +63,35 @@ button.accept-policy[b-t51quky6kd] {
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Login</a>
+                    <%
+' Check if the "token" cookie exists
+If Request.Cookies("Token") = "" Then
+%>
+    <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://contact-mvc.hra.az/account/login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Register</a>
+                                <a class="nav-link text-dark" href="https://contact-mvc.hra.az/account/register">Register</a>
                             </li>
-
+<%
+Else
+%>
+     <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://contact-mvc.hra.az/contact/list">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://contact-mvc.hra.az/account/logout">Logout</a>
+                            </li>
+<%
+End If
+%>
+                           
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-
    
 <div class="">
    <div class="container mt-5">
@@ -103,7 +117,6 @@ button.accept-policy[b-t51quky6kd] {
         </form>
     </div>
 </div>
-
 
 
 

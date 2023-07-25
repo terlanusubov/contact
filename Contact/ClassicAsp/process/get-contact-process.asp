@@ -13,7 +13,7 @@ If Len(contactId) > 0 And IsNumeric(contactId) Then
     ' Perform any necessary actions with the contactId
     ' For example, you might use it in the API URL to fetch contact data
     Dim apiUrl
-    apiUrl = "https://localhost:5233/api/users/contacts/" & contactId
+    apiUrl = "https://contact-api.hra.az/api/users/contacts/" & contactId
 
     Dim  jsonResponse, data
 
@@ -22,7 +22,7 @@ If Len(contactId) > 0 And IsNumeric(contactId) Then
 
             ' Check if contactId is present and has a valid value
             If Len(contactId) > 0 And IsNumeric(contactId) Then
-                apiUrl = "https://localhost:7243/api/users/contacts/" & contactId
+                apiUrl = "https://contact-api.hra.az/api/users/contacts/" & contactId
 
                 ' Create the XMLHTTP object
                 Dim http
