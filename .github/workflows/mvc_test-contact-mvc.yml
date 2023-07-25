@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - test-contact-mvc
+name: Build and deploy ASP.Net Core app to Azure Web App - test-contact-api
 
 on:
   push:
     branches:
-      - mvc
+      - main
   workflow_dispatch:
 
 jobs:
@@ -23,22 +23,26 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release ./Contact/Contact.MVC
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release -o /home/runner/.dotnet/myapp/Contact.MVC
+        working-directory: ./Contact/Contact.API
+
+      - name: List contents of /home/runner/.dotnet/myapp directory
+        run: ls -al /home/runner/.dotnet/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: /home/runner/.dotnet/myapp/Contact.MVC
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -51,7 +55,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'test-contact-mvc'
-          slot-name: 'Production'
+          app-name: 'test-contact-api'
+          slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0E2D795E69774BBCB7C3CBF9B038BC18 }}
-          package: .
+          package: /home/runner/work/contact/contact
