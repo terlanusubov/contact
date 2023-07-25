@@ -29,6 +29,9 @@ jobs:
         run: dotnet publish -c Release -o /home/runner/.dotnet/myapp/Contact.API
         working-directory: ./Contact/Contact.API
 
+      - name: List contents of /home/runner/.dotnet/myapp directory
+        run: ls -al /home/runner/.dotnet/myapp
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
