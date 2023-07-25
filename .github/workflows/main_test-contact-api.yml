@@ -26,14 +26,14 @@ jobs:
         run: dotnet build --configuration Release ./Contact/Contact.API
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp/Contact.API
+        run: dotnet publish -c Release -o /home/runner/.dotnet/myapp/Contact.API
         working-directory: ./Contact/Contact.API
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp/Contact.API
+          path: /home/runner/.dotnet/myapp/Contact.API
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,4 +55,4 @@ jobs:
           app-name: 'test-contact-api'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_49DF46C32AC54381879A8BE85E4F726A }}
-          package: ${{ github.workspace }}/myapp/Contact.API
+          package: /home/runner/.dotnet/myapp/Contact.API
