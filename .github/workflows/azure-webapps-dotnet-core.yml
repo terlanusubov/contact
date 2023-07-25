@@ -55,7 +55,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'test-contact-api'
+          app-name: 'test-contact-mvc'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0E2D795E69774BBCB7C3CBF9B038BC18 }}
           package: /home/runner/work/contact/contact
