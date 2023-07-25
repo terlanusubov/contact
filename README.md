@@ -13,7 +13,7 @@ Welcome to the Contact API documentation!
 
 
 <p align="center">
-  <img src="https://drive.google.com/file/d/1rZhOD5mgA0fmkujAEmsBb391DDV9Q8RT/view?usp=sharing" alt="Alt Text">
+  <img src="https://test-contact-api.azurewebsites.net/diagram.png" alt="Alt Text">
 </p>
 
 
