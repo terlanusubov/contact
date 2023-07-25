@@ -29,7 +29,7 @@ namespace Contact.API.Controllers
             }
             var cookie = new CookieOptions()
             {
-                Domain = "localhost",
+                Domain = "test-contact-api.azurewebsites.net",
                 Path = "/",
                 HttpOnly = true,
                 Secure = true,

@@ -2,7 +2,7 @@
 @model GetUserContactResponse
 <div class="container mt-4">
     <h3>User Contact Table</h3>
-    <a class="btn btn-primary" href="http:localhost/pages/add-contact.asp">Add Contact</a>
+    <a class="btn btn-primary" href="https://test-contact-mvc.azurewebsites.net/pages/add-contact.asp">Add Contact</a>
     <form action="@Url.Action("List","Contact")" method="get">
         <div class="form-row d-flex">
             <div class="col-md-2 mx-1 my-1">
@@ -43,7 +43,7 @@
                     <td>@contact.Email</td>
                     <td>@contact.Phone</td>
                     <td>
-                        <a href="http://localhost/pages/edit-contact.asp?contactId=@contact.ContactId" class="btn btn-primary">Edit</a>
+                        <a href="https://test-contact-mvc.azurewebsites.net/pages/edit-contact.asp?contactId=@contact.ContactId" class="btn btn-primary">Edit</a>
                         <a href="@Url.Action("Delete","Contact",new{contactId = contact.ContactId})" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
