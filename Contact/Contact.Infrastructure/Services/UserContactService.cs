@@ -53,8 +53,8 @@ namespace Contact.Infrastructure.Services
         {
             var contact = await _context.UserContacts.FirstOrDefaultAsync(c => c.UserId == userId && c.Id == contactId);
 
-            if (contact != null)
-                return ApiResult<DeleteUserContactResponse>.Error(ErrorCodes.USER_CONTACT_IS_ALREADY_EXISTS);
+            if (contact == null)
+                return ApiResult<DeleteUserContactResponse>.Error(ErrorCodes.USER_CONTACT_IS_NOT_EXISTS);
 
 
             _context.UserContacts.Remove(contact);
@@ -162,8 +162,8 @@ namespace Contact.Infrastructure.Services
         {
             var contact = await _context.UserContacts.FirstOrDefaultAsync(c => c.UserId == userId && c.Id == contactId);
 
-            if (contact != null)
-                return ApiResult<UpdateUserContactResponse>.Error(ErrorCodes.USER_CONTACT_IS_ALREADY_EXISTS);
+            if (contact == null)
+                return ApiResult<UpdateUserContactResponse>.Error(ErrorCodes.USER_CONTACT_IS_NOT_EXISTS);
 
             contact.Name = model.Name;
             contact.Surname = model.Suraname;

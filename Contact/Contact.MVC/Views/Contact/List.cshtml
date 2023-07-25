@@ -43,8 +43,8 @@
                     <td>@contact.Email</td>
                     <td>@contact.Phone</td>
                     <td>
-                        <a href="#" class="btn btn-primary">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="http://localhost/pages/edit-contact.asp?contactId=@contact.ContactId" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete","Contact",new{contactId = contact.ContactId})" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }

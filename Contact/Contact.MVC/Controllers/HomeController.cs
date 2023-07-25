@@ -22,26 +22,6 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        //using (HttpClient client = new HttpClient())
-        //{
-        //    client.BaseAddress = new Uri("http://localhost:5233/api/");
-
-        //    foreach (var cookie in Request.Cookies)
-        //    {
-        //        client.DefaultRequestHeaders.Add("Cookie", $"{cookie.Key}={cookie.Value}");
-        //    }
-
-        //    var response = await client.GetAsync("account/check-token");
-
-        //    string apiResponse = await response.Content.ReadAsStringAsync();
-
-        //    var checkTokenResponse = JsonConvert.DeserializeObject<ApiResult<CheckTokenResponse>>(apiResponse);
-
-        //    if (checkTokenResponse.StatusCode != (int)HttpStatusCode.OK)
-        //        return View();
-
-        //}
-
         return View();
     }
 

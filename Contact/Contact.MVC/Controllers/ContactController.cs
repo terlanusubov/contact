@@ -37,6 +37,37 @@ namespace Contact.MVC.Controllers
                 return View(contactResponse?.Response);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? contactId)
+        {
+
+            if(contactId == null)
+            return RedirectToAction("List","Contact");
+
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:7243/api/");
+                Request.Cookies.TryGetValue("Token", out string? token);
+
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                var response = await client.DeleteAsync("users/contacts/" + contactId);
+
+                string apiResponse = await response.Content.ReadAsStringAsync();
+
+                var contactResponse = JsonConvert.DeserializeObject<ApiResult<GetUserContactResponse>>(apiResponse);
+
+                if(contactResponse.StatusCode == 200)
+                {
+                    return RedirectToAction("List", "Contact");
+                }
+
+                return RedirectToAction("List", "Contact");
+
+            }
+        }
     }
 }
 
