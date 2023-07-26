@@ -1,7 +1,8 @@
 <%@ LCID=1046 %>
 
-<!--#include file="../includes/api-response.asp"-->
-<!--#include file="../includes/jsonObject.class.asp"-->
+<!--#include virtual="/myapp/jsonObject.class.asp"-->
+<!--#include virtual="/myapp/config.asp"-->
+
 
 <%
 Dim url, requestData, responseText
@@ -13,16 +14,16 @@ surname = Request.Form("surname")
 email = Request.Form("email")
 phone = Request.Form("phone")
 
-requestData = "{ ""name"": """ & name & """, ""surname"": """ & surname & """, ""email"": """ & email & """, ""phone"": """ & phone & """ }"
+requestData = "{ ""name"": """ & name & """, ""suraname"": """ & surname & """, ""email"": """ & email & """, ""phone"": """ & phone & """ }"
 
-url = "https://contact-api.hra.az/api/users/contacts/" & contactId
-
+url = API_BASE_URL & "users/contacts/" & contactId & "/update"
+Response.Write url
 Dim http
 Set http = Server.CreateObject("WinHTTP.WinHTTPRequest.5.1")
-http.Option(4) = 13056  
+ http.Option(4) = 13056  
 
 http.Open "POST", url, False
-
+Response.Write requestData
 
 Dim jwtToken
 jwtToken = Request.Cookies("Token")
@@ -31,7 +32,6 @@ If Not IsEmpty(jwtToken) Then
 End If
 
 http.SetRequestHeader "Content-Type", "application/json"
-http.SetRequestHeader "X-HTTP-Method-Override", "PUT"
 
 http.Send requestData
 
@@ -47,7 +47,7 @@ If http.Status = 200 Then
     Dim statusCode
     statusCode = jsonObj.data("statusCode")
     If statusCode = 200 tHEN
-        Response.Redirect "https://contact-mvc.hra.az/Contact/List" 
+        Response.Redirect MVC_BASE_URL & "Contact/List" 
     Else If statusCode = 400 Then
       Response.Redirect "../pages/edit-contact.asp?contactId=" & contactId
       End If

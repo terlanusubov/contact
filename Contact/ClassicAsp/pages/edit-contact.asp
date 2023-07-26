@@ -1,3 +1,5 @@
+<%@ LCID=1046 %>
+<!--#include virtual="/myapp/check-token.asp"-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +115,7 @@ End If
                 <label for="phone">Phone:</label>
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
 </div>
@@ -131,7 +133,7 @@ End If
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/site.js" asp-append-version="true"></script>
 
-    <!--#include file="../process/get-contact-process.asp"-->
+    <!--#include virtual="/myapp/get-contact-process.asp"-->
 
     <script>
 
@@ -141,7 +143,9 @@ End If
     document.getElementById("surname").value = jsonR.response.contact.surname
     document.getElementById("email").value = jsonR.response.contact.email
     document.getElementById("phone").value = jsonR.response.contact.phone
-
+    let attr = document.querySelector("form").getAttribute("action");
+    attr+="?contactId=" + jsonR.response.contact.contactId;
+    document.querySelector("form").setAttribute("action",attr);
     </script>
 
 </body>

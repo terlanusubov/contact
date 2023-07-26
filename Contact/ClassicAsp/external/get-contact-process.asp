@@ -1,29 +1,23 @@
-<%@ LCID=1046 %>
-
-<!--#include file="../includes/jsonObject.class.asp"-->
+<!--#include virtual="/myapp/jsonObject.class.asp"-->
 
 <%
 
 ' Get the contactId from the query string
 Dim contactId
 contactId = Request.QueryString("contactId")
-
+Response.Write contactId
 ' Check if contactId is present and has a valid value
 If Len(contactId) > 0 And IsNumeric(contactId) Then
     ' Perform any necessary actions with the contactId
     ' For example, you might use it in the API URL to fetch contact data
     Dim apiUrl
-    apiUrl = "https://contact-api.hra.az/api/users/contacts/" & contactId
+    apiUrl = API_BASE_URL & "users/contacts/" & contactId
 
     Dim  jsonResponse, data
 
-            ' Get the contactId from the query string
-            contactId = Request.QueryString("contactId")
 
             ' Check if contactId is present and has a valid value
             If Len(contactId) > 0 And IsNumeric(contactId) Then
-                apiUrl = "https://contact-api.hra.az/api/users/contacts/" & contactId
-
                 ' Create the XMLHTTP object
                 Dim http
                 Set http = Server.CreateObject("WinHTTP.WinHTTPRequest.5.1")
@@ -43,8 +37,6 @@ If Len(contactId) > 0 And IsNumeric(contactId) Then
                 ' Check if the API call was successful
                 If http.Status = 200 Then
                     ' Parse the JSON response
-                    Response.Write "yes"
-                    
                     jsonResponse = http.responseText
                     
                 Else

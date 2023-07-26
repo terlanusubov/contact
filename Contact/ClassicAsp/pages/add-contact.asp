@@ -1,4 +1,6 @@
 <%@ Language=VBScript %>
+<!--#include file="/myapp/check-token.asp"-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
