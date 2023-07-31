@@ -36,7 +36,9 @@ namespace Contact.Infrastructure.Services
 
         public async Task<ApiResult<CheckTokenResponse>> CheckToken(string token)
         {
+            //Check token validaty and return result
             var result = _jwtService.ValidateJwtToken(token);
+
 
             return ApiResult<CheckTokenResponse>.OK(new CheckTokenResponse
             {
@@ -49,17 +51,22 @@ namespace Contact.Infrastructure.Services
 
         public async Task<ApiResult<LoginResponse>> Login(LoginRequest request)
         {
+
+            //get user from database with username
             var user = await _context.Users.FirstOrDefaultAsync(c => c.Username == request.Username);
 
+            //if we dont have a username in database then error
             if (user == null)
                 return ApiResult<LoginResponse>.Error(ErrorCodes.USERNAME_OR_PASSWORD_IS_NOT_CORRECT);
 
 
+            //checking password with our hash if doesnt match then error
             if (!user.CheckPassword(request.Password))
                 return ApiResult<LoginResponse>.Error(ErrorCodes.USERNAME_OR_PASSWORD_IS_NOT_CORRECT);
 
 
 
+            //generating JWT token , use jwtService for this
             string token = _jwtService.GenerateJwtToken(user);
 
             var response = new LoginResponse
@@ -73,20 +80,27 @@ namespace Contact.Infrastructure.Services
         public async Task<ApiResult<RegisterResponse>> Register(RegisterRequest request)
         {
 
+            //get user from database with username
             var user = await _context.Users.FirstOrDefaultAsync(c => c.Username == request.Username);
 
+
+            //if we have a username in database then error
             if (user != null)
                 return ApiResult<RegisterResponse>.Error(ErrorCodes.USER_IS_ALREADY_EXISTS_WITH_THIS_USERNAME);
 
 
+            //creating new user with correct credentials
             user = new User(request.Name,
                                request.Surname,
                                request.Email,
                                request.Username);
 
+
+            //making password with hmacsha256
             user.AddPassword(request.Password);
 
 
+            //adding it to database
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 

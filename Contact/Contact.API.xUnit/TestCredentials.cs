@@ -30,7 +30,7 @@ namespace Contact.API.xUnit
             {
                 Name = "Test",
                 Surname = "Test",
-                Phone = "test",
+                Phone = Guid.NewGuid().ToString(),
                 Email = "test.test@test.com"
             };
         }
@@ -45,6 +45,6 @@ namespace Contact.API.xUnit
                 Email = "test.test@test.com"
             };
         }
-       
+
     }
 }

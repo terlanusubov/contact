@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Contact.Infrastructure
 {
+    /// <summary>
+    /// Dependency Injection of Infrastructure Layer
+    /// </summary>
     public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration _configuration)

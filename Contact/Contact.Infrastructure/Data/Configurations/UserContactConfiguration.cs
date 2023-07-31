@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Contact.Infrastructure.Data.Configurations
 {
-    public class UserContactConfiguration: IEntityTypeConfiguration<UserContact>
+    /// <summary>
+    /// UserContact model configurations
+    /// </summary>
+    public class UserContactConfiguration : IEntityTypeConfiguration<UserContact>
     {
         public void Configure(EntityTypeBuilder<UserContact> builder)
         {

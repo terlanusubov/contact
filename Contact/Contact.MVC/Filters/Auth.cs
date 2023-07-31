@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Contact.MVC.Filters
 {
+    /// <summary>
+    /// Custom Auth filter attribute , checks JWT token which comes from Cookie
+    /// </summary>
     [AttributeUsage(AttributeTargets.All)]
     public class Auth : Attribute, IAsyncAuthorizationFilter
     {

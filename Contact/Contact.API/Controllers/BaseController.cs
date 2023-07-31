@@ -20,6 +20,13 @@ namespace Contact.API.Controllers
 
         public IConfiguration? Configuration => _configuration ?? HttpContext.RequestServices.GetService<IConfiguration>();
 
+
+
+        /// <summary>
+        /// In order to share session from classic asp and asp net core return response via cookie
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         [NonAction]
         public ActionResult<ApiResult<LoginResponse>> ResponseViaCookie(ApiResult<LoginResponse> data)
         {

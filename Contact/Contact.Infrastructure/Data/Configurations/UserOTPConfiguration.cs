@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Contact.Infrastructure.Data.Configurations
 {
+    /// <summary>
+    /// UserOTP model configurations
+    /// </summary>
     public class UserOTPConfiguration : IEntityTypeConfiguration<UserOTP>
     {
         public void Configure(EntityTypeBuilder<UserOTP> builder)

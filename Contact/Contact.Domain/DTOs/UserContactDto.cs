@@ -1,6 +1,9 @@
 ﻿using System;
 namespace Contact.Domain.DTOs
 {
+    /// <summary>
+    /// User contact data transfer object
+    /// </summary>
     public class UserContactDto
     {
         public int ContactId { get; set; }

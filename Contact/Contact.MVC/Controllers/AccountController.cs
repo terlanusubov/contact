@@ -27,8 +27,6 @@ namespace Contact.MVC.Controllers
         }
 
 
-
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -38,6 +36,7 @@ namespace Contact.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest request)
         {
+            //make request to login api
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
@@ -48,9 +47,11 @@ namespace Contact.MVC.Controllers
 
                 var loginResponse = JsonConvert.DeserializeObject<ApiResult<LoginResponse>>(apiResponse);
 
+                //if there is a problem then error
                 if (loginResponse.StatusCode != (int)HttpStatusCode.OK)
                     return View(request);
 
+                //add Token param to cookie
                 Response.Cookies.Append("Token", loginResponse.Response.Token, new Microsoft.AspNetCore.Http.CookieOptions
                 {
                     Expires = DateTime.UtcNow.AddHours(5),
@@ -59,6 +60,7 @@ namespace Contact.MVC.Controllers
                     SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None
                 });
 
+                //make cookie authentication
                 var claims = new List<Claim>
                   {
                       new Claim("jwt_token",loginResponse.Response.Token ),
@@ -81,6 +83,7 @@ namespace Contact.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
+            //make request to register api
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(_configuration["API:BaseUrl"]);
@@ -91,9 +94,11 @@ namespace Contact.MVC.Controllers
 
                 var registerResponse = JsonConvert.DeserializeObject<ApiResult<LoginResponse>>(apiResponse);
 
+                //if there is a problem then error
                 if (registerResponse?.StatusCode != (int)HttpStatusCode.OK)
                     return View(request);
 
+                //if okay then redirect to login
                 return RedirectToAction("Login", "Account");
             }
         }
@@ -101,6 +106,7 @@ namespace Contact.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
+            //delete cookies
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             Response.Cookies.Delete("Token");
             return RedirectToAction("Index", "Home");

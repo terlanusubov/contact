@@ -10,6 +10,9 @@ using Contact.Domain.Entities;
 
 namespace Contact.Application.Interfaces
 {
+    /// <summary>
+    /// User Contact Service is responsible about contact CRUD operations
+    /// </summary>
     public interface IUserContactService
     {
         Task<ApiResult<GetUserContactResponse>> GetUserContacts(GetUserContactRequest model, int userId);

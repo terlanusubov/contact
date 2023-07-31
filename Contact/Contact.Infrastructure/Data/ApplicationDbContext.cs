@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace Contact.Infrastructure.Data
 {
+    /// <summary>
+    /// ApplicationDbContext uses EF Core
+    /// </summary>
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions):base(dbContextOptions) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<UserContact> UserContacts { get; set; }
@@ -19,7 +22,7 @@ namespace Contact.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new UserContactConfiguration());
             modelBuilder.ApplyConfiguration(new UserOTPConfiguration());

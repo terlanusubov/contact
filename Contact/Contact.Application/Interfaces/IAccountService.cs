@@ -9,6 +9,9 @@ using Contact.Application.Models.Response;
 
 namespace Contact.Application.Interfaces
 {
+    /// <summary>
+    /// User Account Service is used for account processes
+    /// </summary>
     public interface IAccountService
     {
         Task<ApiResult<LoginResponse>> Login(LoginRequest request);

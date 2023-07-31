@@ -10,7 +10,7 @@ namespace Contact.API.xUnit.Controllers
 {
     public class UserControllerTests : IntegrationTestBase
     {
-       
+
 
         [Fact]
         public async Task CreateUserContact_ReturnsContactId()
@@ -18,14 +18,14 @@ namespace Contact.API.xUnit.Controllers
 
             await AuthenticateAsync();
 
-          
+
 
             var response = await TestClient.PostAsJsonAsync(
                         TestCredentials.CreateUserContactEndPoint,
                         TestCredentials.GetCreateUserContactRequestParameters());
 
 
-            response.EnsureSuccessStatusCode(); 
+            response.EnsureSuccessStatusCode();
             var createdResponse = await response.Content.ReadFromJsonAsync<ApiResult<CreateUserContactResponse>>();
             Assert.NotNull(createdResponse);
             Assert.NotEqual(0, createdResponse.Response.ContactId);
@@ -38,7 +38,7 @@ namespace Contact.API.xUnit.Controllers
 
 
 
-            var response = await TestClient.PutAsJsonAsync(
+            var response = await TestClient.PostAsJsonAsync(
                         TestCredentials.UpdateUserContactEndPoint,
                         TestCredentials.GetUpdateUserContactRequestParameters());
 

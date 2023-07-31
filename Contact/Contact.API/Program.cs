@@ -8,14 +8,22 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//Add api controller logic
 builder.Services.AddControllers();
+
+//add dependency injection of application layer
 builder.Services.AddApplication();
+
+//add dependency injection of infrastructure layer
 builder.Services.AddInfrastructure(builder.Configuration);
+
+//disable api default model validation errors
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
 });
+
+//add jwt authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -36,8 +44,12 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+//adding authorization
 builder.Services.AddAuthorization();
 
+
+
+//adding swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -81,12 +93,6 @@ builder.Services.AddSwaggerGen(c =>
 
 });
 
-//services.AddSwaggerGen(options =>
-//{
-//    options.IncludeXmlComments(XmlCommentsFilePath);
-//});
-
-
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -100,7 +106,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+//give access to wwwroot
 app.UseStaticFiles();
 
 app.UseSwagger();
@@ -123,5 +129,5 @@ app.UseAuthorization();
 
 app.Run();
 
-
-public partial class  Program{}
+//in order to use Program class in Integration test add partial Program class
+public partial class Program { }

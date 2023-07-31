@@ -23,7 +23,6 @@ namespace Contact.API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<ApiResult<LoginResponse>>> Login(LoginRequest request)
         => ResponseViaCookie(await _accountService.Login(request));
-            //await _accountService.Login(request);
 
         [HttpPost("register")]
         public async Task<ActionResult<ApiResult<RegisterResponse>>>
