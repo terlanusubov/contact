@@ -44,6 +44,7 @@ namespace Contact.MVC.Controllers
 
                 Response.Cookies.Append("Token", loginResponse.Response.Token, new Microsoft.AspNetCore.Http.CookieOptions
                 {
+                    Domain = ".hra.az",
                     Expires = DateTime.UtcNow.AddHours(5),
                     HttpOnly = true,
                     Secure = true,
