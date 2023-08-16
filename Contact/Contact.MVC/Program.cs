@@ -28,9 +28,6 @@ builder.Services.AddAuthentication(options =>
         .AddCookie(options =>
         {
             options.LoginPath = "/account/login";
-            options.Cookie.Name = "Auth";
-            options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None;
-            options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
         });
 var app = builder.Build();
 
