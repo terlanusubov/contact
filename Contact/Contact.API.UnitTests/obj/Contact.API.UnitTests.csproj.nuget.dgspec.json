@@ -1,35 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.API.UnitTests/Contact.API.UnitTests.csproj": {}
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API.UnitTests\\Contact.API.UnitTests.csproj": {}
   },
   "projects": {
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.API.UnitTests/Contact.API.UnitTests.csproj": {
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API.UnitTests\\Contact.API.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API.UnitTests/Contact.API.UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API.UnitTests\\Contact.API.UnitTests.csproj",
         "projectName": "Contact.API.UnitTests",
-        "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API.UnitTests/Contact.API.UnitTests.csproj",
-        "packagesPath": "/Users/tarlanusubov/.nuget/packages/",
-        "outputPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API.UnitTests/obj/",
+        "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API.UnitTests\\Contact.API.UnitTests.csproj",
+        "packagesPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tarlanusubov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tarlan.usubov.AZINTELECOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/AZE-DPC-SXM-DEV/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/Contact.API.csproj": {
-                "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/Contact.API.csproj"
+              "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\Contact.API.csproj": {
+                "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\Contact.API.csproj"
               }
             }
           }
@@ -85,37 +89,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/Contact.API.csproj": {
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\Contact.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/Contact.API.csproj",
+        "projectUniqueName": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\Contact.API.csproj",
         "projectName": "Contact.API",
-        "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/Contact.API.csproj",
-        "packagesPath": "/Users/tarlanusubov/.nuget/packages/",
-        "outputPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.API/obj/",
+        "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\Contact.API.csproj",
+        "packagesPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tarlanusubov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tarlan.usubov.AZINTELECOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "/usr/local/share/dotnet/sdk/7.0.304/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/AZE-DPC-SXM-DEV/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/Contact.Infrastructure.csproj": {
-                "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/Contact.Infrastructure.csproj"
+              "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj"
               }
             }
           }
@@ -174,36 +181,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/Contact.Application.csproj": {
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\Contact.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/Contact.Application.csproj",
+        "projectUniqueName": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\Contact.Application.csproj",
         "projectName": "Contact.Application",
-        "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/Contact.Application.csproj",
-        "packagesPath": "/Users/tarlanusubov/.nuget/packages/",
-        "outputPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/obj/",
+        "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\Contact.Application.csproj",
+        "packagesPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tarlanusubov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tarlan.usubov.AZINTELECOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/AZE-DPC-SXM-DEV/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/Contact.Domain.csproj": {
-                "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/Contact.Domain.csproj"
+              "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\Contact.Domain.csproj": {
+                "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\Contact.Domain.csproj"
               }
             }
           }
@@ -239,29 +250,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/Contact.Domain.csproj": {
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\Contact.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/Contact.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\Contact.Domain.csproj",
         "projectName": "Contact.Domain",
-        "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/Contact.Domain.csproj",
-        "packagesPath": "/Users/tarlanusubov/.nuget/packages/",
-        "outputPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Domain/obj/",
+        "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\Contact.Domain.csproj",
+        "packagesPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tarlanusubov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tarlan.usubov.AZINTELECOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/AZE-DPC-SXM-DEV/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -294,36 +309,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/Contact.Infrastructure.csproj": {
+    "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/Contact.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj",
         "projectName": "Contact.Infrastructure",
-        "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/Contact.Infrastructure.csproj",
-        "packagesPath": "/Users/tarlanusubov/.nuget/packages/",
-        "outputPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Infrastructure/obj/",
+        "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tarlanusubov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tarlan.usubov.AZINTELECOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/AZE-DPC-SXM-DEV/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/Contact.Application.csproj": {
-                "projectPath": "/Users/tarlanusubov/Projects/contact/Contact/Contact.Application/Contact.Application.csproj"
+              "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\Contact.Application.csproj": {
+                "projectPath": "C:\\Users\\tarlan.usubov.AZINTELECOM\\Desktop\\task\\contact\\Contact\\Contact.Application\\Contact.Application.csproj"
               }
             }
           }
@@ -375,7 +394,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
